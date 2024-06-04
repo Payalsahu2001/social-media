@@ -1,0 +1,75 @@
+
+<%- include('partials/header')%>
+<%- include('partials/nav')%>
+<div>
+  <a href="/reset-password/<%= user._id%>"> reset password</a>
+</div>
+<div class="rounded-xl w-[80%] pt-[5%] pb-[5%] m-auto bg-blue-100">
+    <h1
+      class="bg-blue-200 w-[50%] rounded-xl p-3 m-auto text-center text-5xl font-bold text-blue-400 border-double border-4 border-sky-500">
+     Update User
+    </h1>
+    <form class="hidden form-image" action="/image/<%=user._id%>
+      " method="post" enctype="multipart/form-data">
+      <input class="input-image" type="file" name="profilepic">
+    </form>
+<img  class="preview-image mr-10 w-[20vh] h-[20vh] rounded-full object-cover bg-blue-500" src="/images/<%=user.profilepic%>" alt="">
+
+
+    <form action="/update-user/<%= user._id%>" class=" mt-[5%] text-center" method="post">
+
+      <input
+        class="w-[40%] mb-10  border border-zinc-500 p-3 rounded-md text-xl bg-blue-100 border-sky-500	border-color: rgb(140 165 233);"
+        type="text" placeholder="username" name="username" value="<%=user.userename%>">
+      <br>
+
+      <input
+        class="w-[40%] mb-10 border border-zinc-500 p-3 rounded-md text-xl bg-blue-100   border-color:bg-blue-300"
+        type="text" placeholder="User Email" name="Email" value="<%=user.Email%>"> <br>
+      <input
+        class="w-[40%] mb-10 border border-zinc-500 p-3 rounded-md text-xl bg-blue-100   border-color:bg-blue-300"
+        type="password" placeholder="********" name="password"> <br>
+
+        <button
+        class="mt-5 text-center block w-[40%] m-auto hover:bg-blue-600 rounded text-white py-3 px-5 bg-blue-400"> Update User details </button>
+   
+         
+    </form>
+
+   
+   
+    
+   
+  </div>
+
+
+  </div>
+  
+
+</div>
+  
+</div>
+
+
+<script>
+const inputimage = document.querySelector(".input-image");
+const previewimage = document.querySelector(".preview-image");
+const formimage = document.querySelector(".form-image")
+previewimage.addEventListener("click", function() {
+  inputimage.click()
+})
+inputimage.addEventListener("change",function(){
+  formimage.submit()
+})
+
+</script>
+
+
+
+
+
+
+
+
+
+  <%- include("./partials/footer")%>
